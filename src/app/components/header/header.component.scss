@@ -4,6 +4,13 @@
   background-color: $blue;
 }
 
-img:hover {
-  cursor: pointer;
+img {
+  margin-right: 8px;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }
