@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
-  selector: 'app-poke-table',
-  templateUrl: './poke-table.component.html',
-  styleUrls: ['./poke-table.component.scss'],
+  selector: 'app-poke-list',
+  templateUrl: './poke-list.component.html',
+  styleUrls: ['./poke-list.component.scss'],
 })
-export class PokeTableComponent implements OnInit {
+export class PokeListComponent implements OnInit {
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
