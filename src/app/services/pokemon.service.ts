@@ -9,10 +9,11 @@ export class PokemonService {
   baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
-  getPokemons(index: number) {
+  // getPokemons(index: number) {
+  getPokemons() {
     return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=20`);
+    // return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
   }
-  // return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
 
   // getPokemons() {
   //   return this.http.get<any>(`${this.baseUrl}/pokemon`);
