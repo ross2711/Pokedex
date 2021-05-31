@@ -11,7 +11,7 @@ export class PokemonService {
 
   // getPokemons(index: number) {
   getPokemons() {
-    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=20`);
+    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=150`);
     // return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
   }
 
