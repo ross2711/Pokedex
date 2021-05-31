@@ -1,0 +1,4 @@
+{
+    "editor.formatOnSave": true,
+    "prettier.prettierPath": "/usr/local/lib/node_modules/prettier"
+}
