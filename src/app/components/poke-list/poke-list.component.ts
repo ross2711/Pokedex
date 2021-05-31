@@ -7,6 +7,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./poke-list.component.scss'],
 })
 export class PokeListComponent implements OnInit {
+  pokemons: any[] = [];
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
@@ -15,8 +16,16 @@ export class PokeListComponent implements OnInit {
   getPokemons() {
     for (let i = 1; i <= 150; i++) {
       this.pokemonService.getPokemons(i).subscribe(
-        (res) => {
-          console.log(res);
+        // this.pokemonService.getPokemons().subscribe(
+        (response: any) => {
+          console.log(i, response);
+          response.results.forEach((result: any) => {
+            this.pokemonService
+              .getMoreData(result.name)
+              .subscribe((response: any) => {
+                this.pokemons.push(response);
+              });
+          });
         },
         (err) => {}
       );
