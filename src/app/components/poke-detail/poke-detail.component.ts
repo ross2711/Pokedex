@@ -8,6 +8,10 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./poke-detail.component.scss'],
 })
 export class PokeDetailComponent implements OnInit {
+  pokemon: any = '';
+  pokeType = [];
+  pokeImg = '';
+
   constructor(
     private pokemonService: PokemonService,
     private activatedRoute: ActivatedRoute
@@ -21,8 +25,10 @@ export class PokeDetailComponent implements OnInit {
 
   getPokemonDetail(id: number) {
     this.pokemonService.getPokemons(id).subscribe(
-      (res) => {
-        console.log(res);
+      (result) => {
+        this.pokemon = result;
+        this.pokeImg = this.pokemon.sprites.front_default;
+        this.pokeType = this.pokemon.types[0].type.name;
       },
       (error) => {}
     );
