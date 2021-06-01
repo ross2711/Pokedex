@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokeDetailComponent } from './components/poke-detail/poke-detail.component';
 import { MaterialModule } from './shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { PokeDetailHeaderComponent } from './components/poke-detail/poke-detail-header/poke-detail-header.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     PokeListComponent,
     PokeDetailComponent,
+    PokeDetailHeaderComponent,
   ],
   imports: [
     BrowserModule,

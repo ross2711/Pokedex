@@ -17,6 +17,8 @@ export class PokeDetailComponent implements OnInit {
   pokeStats: any;
   pokeMoves: any;
   pokeRandomFourMoves: any;
+  name: any;
+  id: any;
 
   constructor(
     private pokemonService: PokemonService,
@@ -57,6 +59,8 @@ export class PokeDetailComponent implements OnInit {
         this.pokeStats = this.pokemon.stats.map((ele: any) => ele.stat.name);
         this.pokeMoves = this.pokemon.moves.map((ele: any) => ele.move.name);
         this.pokeRandomFourMoves = this.getRandom(this.pokeMoves, 4);
+        this.id = this.pokemon.id;
+        this.name = this.pokemon.name;
       },
       error => {}
     );
