@@ -9,6 +9,7 @@ export class PokeDetailHeaderComponent implements OnInit {
   @Input() pokeImg: string | undefined;
   @Input() name: string | undefined;
   @Input() id: string | undefined;
+
   constructor() {}
 
   ngOnInit(): void {}

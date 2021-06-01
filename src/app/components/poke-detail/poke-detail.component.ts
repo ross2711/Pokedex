@@ -31,7 +31,7 @@ export class PokeDetailComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // gets 4 random 'Moves'
+  // getsRandom returns 4 random 'Moves'
   getRandom(arr: string | any[], n: number) {
     let result = new Array(n),
       len = arr.length,

@@ -11,6 +11,7 @@ import { PokeDetailComponent } from './components/poke-detail/poke-detail.compon
 import { MaterialModule } from './shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PokeDetailHeaderComponent } from './components/poke-detail/poke-detail-header/poke-detail-header.component';
+import { PokeDetailContentComponent } from './components/poke-detail/poke-detail-content/poke-detail-content.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PokeDetailHeaderComponent } from './components/poke-detail/poke-detail-
     PokeListComponent,
     PokeDetailComponent,
     PokeDetailHeaderComponent,
+    PokeDetailContentComponent,
   ],
   imports: [
     BrowserModule,
