@@ -7,20 +7,15 @@ import { environment } from 'src/environments/environment';
 })
 export class PokemonService {
   baseUrl = environment.baseUrl;
-  constructor(private http: HttpClient) {}
-
-  // getPokemons(index: number) {
-  getPokemons() {
-    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=150`);
-    // return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
+  constructor(private http: HttpClient) {
+    console.log('environ', this.baseUrl);
   }
 
-  // getPokemons() {
-  //   return this.http.get<any>(`${this.baseUrl}/pokemon`);
-  // }
+  getPokemons() {
+    return this.http.get<any>(`${this.baseUrl}?limit=10`);
+  }
 
   getMoreData(name: string) {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
-    // return this.http.get(`${this.baseUrl}/pokemon/${name}`);
+    return this.http.get(`${this.baseUrl}/${name}`);
   }
 }

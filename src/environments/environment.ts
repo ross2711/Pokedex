@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://pokeapi.co/api/v2',
-}
+  baseUrl: 'https://pokeapi.co/api/v2/pokemon',
+};
 
 /*
  * For easier debugging in development mode, you can import the following file
