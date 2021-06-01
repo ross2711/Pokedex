@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class PokeListComponent implements OnInit {
   pokemons: any[] = [];
   dataSource = new MatTableDataSource<any>(this.pokemons);
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPokemons();
@@ -40,7 +41,7 @@ export class PokeListComponent implements OnInit {
   }
 
   getCard(card: any) {
-    console.log(card);
+    this.router.navigateByUrl(`pokeDetail/${card.index}`);
   }
 
   /**
