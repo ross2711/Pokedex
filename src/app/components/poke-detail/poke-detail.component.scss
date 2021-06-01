@@ -1,0 +1,21 @@
+@import '../../../assets/styles/variables.scss';
+
+.card {
+  width: 500px;
+  margin: auto;
+  margin-top: 20px;
+  background-color: $green;
+}
+
+.header-image {
+  //   background-size: cover;
+}
+
+.mat-card-header {
+  background-color: $white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.mat-card-title {
+}
