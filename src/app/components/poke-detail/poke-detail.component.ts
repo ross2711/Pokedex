@@ -22,13 +22,14 @@ export class PokeDetailComponent implements OnInit {
     private pokemonService: PokemonService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.activatedRoute.params.subscribe((params) => {
+    this.activatedRoute.params.subscribe(params => {
       this.getPokemonDetail(params['id']);
     });
   }
 
   ngOnInit(): void {}
 
+  // gets 4 random 'Moves'
   getRandom(arr: string | any[], n: number) {
     let result = new Array(n),
       len = arr.length,
@@ -46,28 +47,18 @@ export class PokeDetailComponent implements OnInit {
 
   getPokemonDetail(id: number) {
     this.pokemonService.getPokemons(id).subscribe(
-      (result) => {
-        console.log('result', result);
-        console.log(result.abilities[0].ability.name);
+      result => {
         this.pokemon = result;
         this.pokeImg = this.pokemon.sprites.front_default;
         this.pokeType = this.pokemon.types[0].type.name;
-        this.pokeAbility = this.pokemon.abilities.map((element: any) => {
-          return element.ability.name;
-        });
+        this.pokeAbility = this.pokemon.abilities.map((ele: any) => ele.ability.name);
         this.pokeHeight = this.pokemon.height;
         this.pokeWeight = this.pokemon.weight;
-        this.pokeStats = this.pokemon.stats.map((element: any) => {
-          return element.stat.name;
-        });
-        console.log('this.pokeStats', this.pokeStats);
-        this.pokeMoves = this.pokemon.moves.map((element: any) => {
-          console.log('allMoves', element.move.name);
-          return element.move.name;
-        });
+        this.pokeStats = this.pokemon.stats.map((ele: any) => ele.stat.name);
+        this.pokeMoves = this.pokemon.moves.map((ele: any) => ele.move.name);
         this.pokeRandomFourMoves = this.getRandom(this.pokeMoves, 4);
       },
-      (error) => {}
+      error => {}
     );
   }
 }
