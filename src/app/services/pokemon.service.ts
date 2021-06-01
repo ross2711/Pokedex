@@ -6,9 +6,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class PokemonService {
-  getPokemonDetail(id: any) {
-    throw new Error('Method not implemented.');
-  }
   baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {
     console.log('environ', this.baseUrl);
@@ -18,7 +15,7 @@ export class PokemonService {
     return this.http.get<any>(`${this.baseUrl}/pokemon/${ind}`);
   }
 
-  getMoreData(name: string) {
-    return this.http.get(`${this.baseUrl}/${name}`);
-  }
+  // getMoreData(name: string) {
+  //   return this.http.get(`${this.baseUrl}/${name}`);
+  // }
 }

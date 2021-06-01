@@ -4,14 +4,16 @@
     <img mat-card-avatar class="header-image" src="{{pokeImg}}">
     <mat-card-title>{{pokemon.name}}</mat-card-title>
     <mat-card-subtitle># {{pokemon.id}}</mat-card-subtitle>
-    
-    
   </mat-card-header>
 
   <img mat-card-image src="{{pokeImg}}" alt="pokemon">
 
   <mat-card-content>
-
+    <mat-card-subtitle>Ability: {{pokeAbility}}</mat-card-subtitle>
+    <mat-card-subtitle>Height: {{pokeHeight}}m</mat-card-subtitle>
+    <mat-card-subtitle>Weight: {{pokeWeight}}m</mat-card-subtitle>
+    <mat-card-subtitle>Stats: {{pokeStats}}</mat-card-subtitle>
+    <mat-card-subtitle>Moves: {{pokeRandomFourMoves}}</mat-card-subtitle>
   </mat-card-content>
 
 </mat-card>
