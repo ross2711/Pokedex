@@ -1,12 +1,12 @@
 <div class="pokemon-grid">
-    <div class="box" *ngFor="let pokemon of pokemons">
-        <img [src]="pokemon.sprites.front_default" alt="pokemon">
-        <h2>{{ pokemon.name | uppercase}}</h2>
+    <div class="box" *ngFor="let element of this.dataSource.filteredData">
+        <img [src]="element.image" alt="pokemon">
+        <h2>{{ element.name | uppercase}}</h2>
         <p>
-            <b>Number: </b> {{pokemon.id}}
+            <b>Number: </b> {{element.id}}
         </p>
         <p>
-            <b>Type: </b> {{pokemon.types[0].type.name}}
+            <b>Type: </b> {{element.type}}
         </p>
     </div>
 </div>

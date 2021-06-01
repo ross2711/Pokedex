@@ -9,7 +9,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokeListComponent implements OnInit {
   pokemons: any[] = [];
-  dataSource = new MatTableDataSource(this.pokemons);
+  dataSource = new MatTableDataSource<any>(this.pokemons);
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -17,18 +17,25 @@ export class PokeListComponent implements OnInit {
     this.getPokemons();
   }
   getPokemons() {
-    this.pokemonService.getPokemons().subscribe(
-      (response: any) => {
-        response.results.forEach((result: any) => {
-          this.pokemonService
-            .getMoreData(result.name)
-            .subscribe((response: any) => {
-              this.pokemons.push(response);
-            });
-        });
-      },
-      (err) => {}
-    );
+    let pokemonData;
+    for (let i = 1; i <= 15; i++) {
+      this.pokemonService.getPokemons(i).subscribe(
+        (result) => {
+          pokemonData = {
+            index: i,
+            image: result.sprites.front_default,
+            id: result.id,
+            name: result.name,
+            type: result.types[0].type.name,
+          };
+          this.pokemons.push(pokemonData);
+          this.dataSource = new MatTableDataSource(this.pokemons);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
     console.log('getPokemons', this.pokemons);
   }
 

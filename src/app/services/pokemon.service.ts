@@ -11,8 +11,8 @@ export class PokemonService {
     console.log('environ', this.baseUrl);
   }
 
-  getPokemons() {
-    return this.http.get<any>(`${this.baseUrl}?limit=10`);
+  getPokemons(ind: number) {
+    return this.http.get<any>(`${this.baseUrl}/pokemon/${ind}`);
   }
 
   getMoreData(name: string) {
