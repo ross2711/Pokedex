@@ -39,6 +39,10 @@ export class PokeListComponent implements OnInit {
     console.log('getPokemons', this.pokemons);
   }
 
+  getCard(card: any) {
+    console.log(card);
+  }
+
   /**
    * applyFilter funtion to be updated.
    */

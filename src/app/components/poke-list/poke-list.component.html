@@ -1,5 +1,5 @@
 <div class="pokemon-grid">
-    <div class="box" *ngFor="let element of this.dataSource.filteredData">
+    <div class="box" *ngFor="let element of this.dataSource.filteredData" (click)="this.getCard(this.element)">
         <img [src]="element.image" alt="pokemon">
         <h2>{{ element.name | uppercase}}</h2>
         <p>
