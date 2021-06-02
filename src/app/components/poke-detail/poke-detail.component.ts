@@ -47,6 +47,10 @@ export class PokeDetailComponent implements OnInit {
     return result;
   }
 
+  getDivision(num: number, n: number) {
+    return num / n;
+  }
+
   getPokemonDetail(id: number) {
     this.pokemonService.getPokemons(id).subscribe(
       result => {
@@ -55,8 +59,8 @@ export class PokeDetailComponent implements OnInit {
         this.pokeImg = this.pokemon.sprites.front_default;
         this.pokeType = this.pokemon.types[0].type.name;
         this.pokeAbility = this.pokemon.abilities.map((ele: any) => ele.ability.name);
-        this.pokeHeight = this.pokemon.height;
-        this.pokeWeight = this.pokemon.weight;
+        this.pokeHeight = this.getDivision(this.pokemon.height, 10);
+        this.pokeWeight = this.getDivision(this.pokemon.weight, 10);
         this.pokeStats = this.pokemon.stats.map((ele: any) => ele.stat.name);
         this.pokeMoves = this.pokemon.moves.map((ele: any) => ele.move.name);
         this.pokeRandomFourMoves = this.getRandom(this.pokeMoves, 4);
