@@ -1,3 +1,6 @@
+<form>
+    <input  (keyup)="applyFilter($event)" placeholder="Search pokemon name..." #input>
+</form>
 <div class="pokemon-grid">
     <div class="box" *ngFor="let element of this.dataSource.filteredData" (click)="this.getCard(this.element)">
         <img [src]="element.image" alt="pokemon">
