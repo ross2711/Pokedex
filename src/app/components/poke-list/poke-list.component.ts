@@ -45,7 +45,7 @@ export class PokeListComponent implements OnInit, AfterViewInit {
     for (let i = 1; i <= 150; i++) {
       this.pokemonService.getPokemons(i).subscribe(
         result => {
-          console.log('result', result);
+          // console.log('result', result);
           pokemonData = {
             index: i,
             image: result.sprites.front_default,
