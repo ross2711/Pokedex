@@ -12,7 +12,7 @@ export class PokemonService {
   }
 
   getPokemons(ind: number) {
-    return this.http.get<any>(`${this.baseUrl}/pokemon/${ind}`);
+    return this.http.get<any>(`${this.baseUrl}/${ind}`);
   }
 
   // getMoreData(name: string) {

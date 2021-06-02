@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { IPokemons } from 'src/app/interfaces/ipokemons';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class PokeListComponent implements OnInit {
     let pokemonData;
     for (let i = 1; i <= 15; i++) {
       this.pokemonService.getPokemons(i).subscribe(
-        (result) => {
+        result => {
+          console.log('result', result);
           pokemonData = {
             index: i,
             image: result.sprites.front_default,
@@ -32,7 +34,7 @@ export class PokeListComponent implements OnInit {
           this.pokemons.push(pokemonData);
           this.dataSource = new MatTableDataSource(this.pokemons);
         },
-        (err) => {
+        err => {
           console.log(err);
         }
       );
