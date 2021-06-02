@@ -1,8 +1,11 @@
 <mat-card-content>
-    <img mat-card-image src="{{pokeImg}}" alt="pokemon">
-    <mat-card-subtitle>Ability: {{pokeAbility}}</mat-card-subtitle>
-    <mat-card-subtitle>Height: {{pokeHeight}}m</mat-card-subtitle>
-    <mat-card-subtitle>Weight: {{pokeWeight}}m</mat-card-subtitle>
-    <mat-card-subtitle>Stats: {{pokeStats}}</mat-card-subtitle>
-    <mat-card-subtitle>Moves: {{pokeRandomFourMoves}}</mat-card-subtitle>
-  </mat-card-content>
+  <img mat-card-image src="{{ pokeImg }}" alt="pokemon" />
+  <mat-card-subtitle>Ability: {{ pokeAbility }}</mat-card-subtitle>
+  <mat-card-subtitle>
+    Height: {{ pokeHeight }}m | {{ pokeHeight | feet: 'dm' }}
+  </mat-card-subtitle>
+  <mat-card-subtitle>Weight: {{ pokeWeight }}m</mat-card-subtitle>
+  <mat-card-subtitle>Stats: {{ pokeStats }}</mat-card-subtitle>
+  <mat-card-subtitle>Moves: {{ pokeRandomFourMoves }}</mat-card-subtitle>
+</mat-card-content>
+<!-- {{ height | feet: 'dm' }} -->
