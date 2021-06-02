@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokeDetailHeaderComponent } from './components/poke-detail/poke-detail-header/poke-detail-header.component';
 import { PokeDetailContentComponent } from './components/poke-detail/poke-detail-content/poke-detail-content.component';
 import { FeetPipe } from './shared/pipes/feet/feet.pipe';
+import { PoundPipe } from './shared/pipes/pound/pound.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FeetPipe } from './shared/pipes/feet/feet.pipe';
     PokeDetailHeaderComponent,
     PokeDetailContentComponent,
     FeetPipe,
+    PoundPipe,
   ],
   imports: [
     BrowserModule,
