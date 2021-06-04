@@ -14,6 +14,8 @@ import { PokeDetailHeaderComponent } from './components/poke-detail/poke-detail-
 import { PokeDetailContentComponent } from './components/poke-detail/poke-detail-content/poke-detail-content.component';
 import { FeetPipe } from './shared/pipes/feet/feet.pipe';
 import { PoundPipe } from './shared/pipes/pound/pound.pipe';
+import { FilterComponent } from './components/poke-list/filter/filter.component';
+import { PokeDetailActionsComponent } from './components/poke-list/poke-detail-actions/poke-detail-actions.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { PoundPipe } from './shared/pipes/pound/pound.pipe';
     PokeDetailContentComponent,
     FeetPipe,
     PoundPipe,
+    FilterComponent,
+    PokeDetailActionsComponent,
   ],
   imports: [
     BrowserModule,
