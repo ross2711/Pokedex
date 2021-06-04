@@ -1,7 +1,7 @@
 import {
-  AfterViewInit,
   ChangeDetectorRef,
   Component,
+  DoCheck,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -18,7 +18,7 @@ import { Observable } from 'rxjs';
   templateUrl: './poke-list.component.html',
   styleUrls: ['./poke-list.component.scss'],
 })
-export class PokeListComponent implements OnInit, AfterViewInit, OnDestroy {
+export class PokeListComponent implements OnInit, OnDestroy, DoCheck {
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   obs: Observable<any> | undefined;
   pokemons: IPokemons[] | undefined = [];
@@ -30,9 +30,7 @@ export class PokeListComponent implements OnInit, AfterViewInit, OnDestroy {
     private pokemonService: PokemonService,
     private router: Router,
     private changeDetectorRef: ChangeDetectorRef
-  ) {
-    // this.dataSource.paginator = this.paginator!;
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getPokemons();
@@ -49,16 +47,11 @@ export class PokeListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  ngAfterViewInit() {
-    // this.dataSource.paginator = this.paginator;
-  }
-
   getPokemons() {
     let pokemonData;
     for (let i = 1; i <= 150; i++) {
       this.pokemonService.getPokemons(i).subscribe(
         result => {
-          // console.log('result', result);
           pokemonData = {
             index: i,
             image: result.sprites.front_default,
@@ -69,15 +62,12 @@ export class PokeListComponent implements OnInit, AfterViewInit, OnDestroy {
           this.pokemons!.push(pokemonData);
           this.dataSource = new MatTableDataSource(this.pokemons);
           this.dataSource.paginator = this.paginator!;
-          // console.log(this.dataSource);
         },
         err => {
           console.log(err);
         }
       );
     }
-    console.log('getPokemons', this.pokemons);
-    console.log('dataSource', this.dataSource);
   }
 
   getCard(card: any) {
@@ -88,8 +78,5 @@ export class PokeListComponent implements OnInit, AfterViewInit, OnDestroy {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
     console.log('filtered data', this.dataSource.filter);
-    // if (this.dataSource.paginator) {
-    //   this.dataSource.paginator.firstPage();
-    // }
   }
 }
