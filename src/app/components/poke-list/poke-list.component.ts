@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -17,25 +18,37 @@ import { Observable } from 'rxjs';
   templateUrl: './poke-list.component.html',
   styleUrls: ['./poke-list.component.scss'],
 })
-export class PokeListComponent implements OnInit, AfterViewInit {
-  @ViewChild('paginator') paginator: MatPaginator | any;
+export class PokeListComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   obs: Observable<any> | undefined;
-
-  pokemons: any[] = [];
-
-  dataSource = new MatTableDataSource<any>(this.pokemons);
+  pokemons: IPokemons[] | undefined = [];
+  dataSource: MatTableDataSource<IPokemons> = new MatTableDataSource<IPokemons>(
+    this.pokemons
+  );
 
   constructor(
     private pokemonService: PokemonService,
     private router: Router,
     private changeDetectorRef: ChangeDetectorRef
-  ) {}
+  ) {
+    // this.dataSource.paginator = this.paginator!;
+  }
 
   ngOnInit(): void {
     this.getPokemons();
+  }
+
+  ngDoCheck() {
     this.changeDetectorRef.detectChanges();
     this.obs = this.dataSource.connect();
   }
+
+  ngOnDestroy() {
+    if (this.dataSource) {
+      this.dataSource.disconnect();
+    }
+  }
+
   ngAfterViewInit() {
     // this.dataSource.paginator = this.paginator;
   }
@@ -53,10 +66,10 @@ export class PokeListComponent implements OnInit, AfterViewInit {
             name: result.name,
             type: result.types[0].type.name,
           };
-          this.pokemons.push(pokemonData);
+          this.pokemons!.push(pokemonData);
           this.dataSource = new MatTableDataSource(this.pokemons);
-          this.dataSource.paginator = this.paginator;
-          // console.log(this.paginator);
+          this.dataSource.paginator = this.paginator!;
+          // console.log(this.dataSource);
         },
         err => {
           console.log(err);
@@ -64,6 +77,7 @@ export class PokeListComponent implements OnInit, AfterViewInit {
       );
     }
     console.log('getPokemons', this.pokemons);
+    console.log('dataSource', this.dataSource);
   }
 
   getCard(card: any) {
