@@ -1,22 +1,15 @@
-/* Pokemon Grid */
+// Card Grid
 
-.pokemon-grid {
+.card-grid {
+  border: 2px solid red;
   display: grid;
-  grid-gap: 16px;
-  padding: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
-}
-
-.pokemon-grid .box {
-  width: 100%;
-  height: 300px;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
-  display: grid;
-  text-align: center;
-}
-
-.pokemon-grid .box img {
-  max-width: 100px;
-  display: block;
-  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  height: auto;
+  mat-card {
+    border: 2px solid green;
+    border-radius: 4px;
+    padding: 0.5rem;
+  }
 }

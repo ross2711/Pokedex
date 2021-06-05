@@ -25,6 +25,8 @@ export class PokeListComponent implements OnInit, OnDestroy, DoCheck {
   dataSource: MatTableDataSource<IPokemons> = new MatTableDataSource<IPokemons>(
     this.pokemons
   );
+  pageSizeOptions = [4, 8, 15, 20, 50, 100];
+  element: any;
 
   constructor(
     private pokemonService: PokemonService,

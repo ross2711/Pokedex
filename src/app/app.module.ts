@@ -8,28 +8,32 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PokeListComponent } from './components/poke-list/poke-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokeDetailComponent } from './components/poke-detail/poke-detail.component';
-import { MaterialModule } from './shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PokeDetailHeaderComponent } from './components/poke-detail/poke-detail-header/poke-detail-header.component';
 import { PokeDetailContentComponent } from './components/poke-detail/poke-detail-content/poke-detail-content.component';
 import { FeetPipe } from './shared/pipes/feet/feet.pipe';
 import { PoundPipe } from './shared/pipes/pound/pound.pipe';
 import { FilterComponent } from './components/poke-list/filter/filter.component';
-import { PokeDetailActionsComponent } from './components/poke-list/poke-detail-actions/poke-detail-actions.component';
+import { PokeListActionsComponent } from './components/poke-list/poke-list-actions/poke-list-actions.component';
+import { PokeListContentComponent } from './components/poke-list/poke-list-content/poke-list-content.component';
+import { PokeListHeaderComponent } from './components/poke-list/poke-list-header/poke-list-header.component';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PokeListComponent,
     PokeDetailComponent,
     PokeDetailHeaderComponent,
     PokeDetailContentComponent,
     FeetPipe,
     PoundPipe,
+    PokeListComponent,
     FilterComponent,
-    PokeDetailActionsComponent,
+    PokeListActionsComponent,
+    PokeListContentComponent,
+    PokeListHeaderComponent,
   ],
   imports: [
     BrowserModule,
