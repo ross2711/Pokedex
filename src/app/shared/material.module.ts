@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatCardModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatButtonModule,
@@ -34,6 +36,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatCardModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MaterialModule {}

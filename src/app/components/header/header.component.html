@@ -1,18 +1,33 @@
 <mat-toolbar>
   <img
-  src="../../../assets/images/alscient.png"
-  alt="pokemon"
-  height="45"
-  width="auto"
-  (click)="home()"/>
+    src="../../../assets/images/alscient.png"
+    alt="pokemon"
+    height="45"
+    width="auto"
+    (click)="home()"
+  />
   <span>Front End Pokédex Test</span>
   <span class="spacer"></span>
   <button mat-icon-button *ngIf="!isHomeRoute()" (click)="home()">Home</button>
   <span class="spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <div>
+    <button (click)="makeHttpCall()">Make Dummy Http Call</button> <br />
+    <p>For Testing Purposes</p>
+  </div>
+  <span class="spacer"></span>
+
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
     <mat-icon>favorite</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>

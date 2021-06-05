@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,7 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, public http: HttpClient) {}
+
+  makeHttpCall() {
+    this.http.get('https://www.reddit.com/r/javascript.json').subscribe(r => {
+      console.log(r);
+    });
+  }
 
   ngOnInit(): void {}
 

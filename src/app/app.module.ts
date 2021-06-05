@@ -8,7 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PokeListComponent } from './components/poke-list/poke-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokeDetailComponent } from './components/poke-detail/poke-detail.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PokeDetailHeaderComponent } from './components/poke-detail/poke-detail-header/poke-detail-header.component';
 import { PokeDetailContentComponent } from './components/poke-detail/poke-detail-content/poke-detail-content.component';
 import { FeetPipe } from './shared/pipes/feet/feet.pipe';
@@ -18,6 +18,9 @@ import { PokeListActionsComponent } from './components/poke-list/poke-list-actio
 import { PokeListContentComponent } from './components/poke-list/poke-list-content/poke-list-content.component';
 import { PokeListHeaderComponent } from './components/poke-list/poke-list-header/poke-list-header.component';
 import { MaterialModule } from './shared/material.module';
+import { MyLoaderComponent } from './components/my-loader/my-loader.component';
+import { LoaderService } from './services/loader.service';
+import { LoaderInterceptorService } from './interceptors/loader-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { MaterialModule } from './shared/material.module';
     PokeListActionsComponent,
     PokeListContentComponent,
     PokeListHeaderComponent,
+    MyLoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,10 @@ import { MaterialModule } from './shared/material.module';
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
