@@ -18,4 +18,33 @@
 
   <mat-card-subtitle>Moves: {{ pokeRandomFourMoves }}</mat-card-subtitle>
   <mat-divider></mat-divider>
+
+  <button
+    mat-raised-button
+    color="primary"
+    matBadge="pokeRandomFourMoves.length"
+    matBadgePosition="before"
+    matBadgeColor="accent"
+    (click)="toggleBadgeVisibility()"
+    mat-raised-button
+    color="primary"
+    matBadge="8"
+    matBadgePosition="before"
+    matBadgeColor="accent"
+    class="md-button"
+  >
+    Moves: <i class="far fa-caret-square-down"></i>
+  </button>
+
+  <ng-template [ngIf]="hidden">
+    <mat-chip-list
+      class="mat-chip-list-stacked"
+      aria-label="Color selection"
+      *ngFor="let move of pokeRandomFourMoves"
+    >
+      <mat-chip selectable="false">
+        {{ move }}
+      </mat-chip>
+    </mat-chip-list>
+  </ng-template>
 </mat-card-content>
