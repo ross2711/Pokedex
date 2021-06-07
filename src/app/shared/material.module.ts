@@ -12,6 +12,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatProgressSpinnerModule,
     MatDividerModule,
     MatChipsModule,
+    MatBadgeModule,
   ],
   exports: [
     MatButtonModule,
@@ -43,6 +45,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatProgressSpinnerModule,
     MatDividerModule,
     MatChipsModule,
+    MatBadgeModule,
   ],
 })
 export class MaterialModule {}

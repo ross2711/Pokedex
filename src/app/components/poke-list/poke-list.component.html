@@ -1,18 +1,26 @@
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input
-    matInput
-    (keyup)="applyFilter($event)"
-    placeholder="Search pokemon name..."
-    #input
-  />
-</mat-form-field>
-<div class="card-grid">
-  <mat-card *ngFor="let element of obs | async" (click)="this.getCard(this.element)">
-    <app-poke-list-header [element]="element"></app-poke-list-header>
-    <app-poke-list-content [element]="element"></app-poke-list-content>
-    <app-poke-list-actions></app-poke-list-actions>
-  </mat-card>
-</div>
+<div class="main-container">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search pokemon name..."
+      #input
+    />
+  </mat-form-field>
+  <div class="card-grid">
+    <mat-card
+      *ngFor="let element of obs | async"
+      (click)="this.getCard(this.element)"
+      [ngStyle]="{ 'background-image': ' url(' + element.image + ')' }"
+    >
+      <div>
+        <app-poke-list-header [element]="element"></app-poke-list-header>
+        <app-poke-list-content [element]="element"></app-poke-list-content>
+        <app-poke-list-actions></app-poke-list-actions>
+      </div>
+    </mat-card>
+  </div>
 
-<mat-paginator [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+</div>
