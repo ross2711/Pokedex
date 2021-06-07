@@ -18,7 +18,7 @@ import { PokeListActionsComponent } from './components/poke-list/poke-list-actio
 import { PokeListContentComponent } from './components/poke-list/poke-list-content/poke-list-content.component';
 import { PokeListHeaderComponent } from './components/poke-list/poke-list-header/poke-list-header.component';
 import { MaterialModule } from './shared/material.module';
-import { MyLoaderComponent } from './components/my-loader/my-loader.component';
+import { LoaderComponent } from './components/loader/loader.component';
 import { LoaderService } from './services/loader.service';
 import { LoaderInterceptorService } from './interceptors/loader-interceptor.service';
 import { FormsModule } from '@angular/forms';
@@ -38,7 +38,7 @@ import { FormsModule } from '@angular/forms';
     PokeListActionsComponent,
     PokeListContentComponent,
     PokeListHeaderComponent,
-    MyLoaderComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

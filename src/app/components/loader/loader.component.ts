@@ -4,11 +4,11 @@ import { LoaderService } from 'src/app/services/loader.service';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'app-my-loader',
-  templateUrl: './my-loader.component.html',
-  styleUrls: ['./my-loader.component.scss'],
+  selector: 'app-loader',
+  templateUrl: './loader.component.html',
+  styleUrls: ['./loader.component.scss'],
 })
-export class MyLoaderComponent implements OnInit {
+export class LoaderComponent implements OnInit {
   color = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
