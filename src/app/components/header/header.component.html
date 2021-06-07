@@ -8,8 +8,11 @@
   />
   <span>Front End Pokédex Test</span>
   <span class="spacer"></span>
-  <button mat-icon-button *ngIf="!isHomeRoute()" (click)="home()">Home</button>
+  <button mat-stroked-button color="primary" *ngIf="!isHomeRoute()" (click)="home()">
+    Home
+  </button>
   <span class="spacer"></span>
-  <button (click)="makeHttpCall()" mat-stroked-button color="primary">Test Loader</button>
-  <span class="spacer"></span>
+  <button (click)="makeHttpCall()" mat-stroked-button color="primary">
+    Test Loader Spinner
+  </button>
 </mat-toolbar>
