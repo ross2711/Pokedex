@@ -1,9 +1,12 @@
 mat-chip {
   max-width: 200px;
+  min-width: 100px;
 }
 
 .md-button {
   min-width: 1%;
+  padding-top: 5px;
+  margin-top: 10px;
 }
 
 .mat-card-image {
@@ -13,4 +16,12 @@ mat-chip {
   padding: 10px;
   position: relative;
   display: block;
+}
+
+.hr-spacer {
+  margin-bottom: 10px;
+}
+
+.chip-list-spacer {
+  margin-bottom: 5px;
 }

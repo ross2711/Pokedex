@@ -1,47 +1,59 @@
 <mat-card-content>
   <img mat-card-image src="{{ pokeImg }}" alt="pokemon" />
-  <mat-card-subtitle>Ability: {{ pokeAbility }}</mat-card-subtitle>
-  <mat-divider></mat-divider>
 
-  <mat-card-subtitle>
-    Height: {{ pokeHeight }}m | {{ pokeHeight | feet: 'dm' }}
-  </mat-card-subtitle>
-  <mat-divider></mat-divider>
+  <hr />
 
-  <mat-card-subtitle>
-    Weight: {{ pokeWeight }}kg | {{ pokeWeight | pound: 'hg':1 }}
-  </mat-card-subtitle>
-  <mat-divider></mat-divider>
+  <p>Height:</p>
+  <mat-chip-list>
+    <mat-chip selectable="false"> {{ pokeHeight }}m (metric) </mat-chip>
+    <mat-chip selectable="false"> {{ pokeHeight | feet: 'dm' }} (imp)</mat-chip>
+  </mat-chip-list>
 
-  <mat-card-subtitle>Stats: {{ pokeStats }}</mat-card-subtitle>
-  <mat-divider></mat-divider>
+  <hr />
 
-  <mat-card-subtitle>Moves: {{ pokeRandomFourMoves }}</mat-card-subtitle>
-  <mat-divider></mat-divider>
+  <p>Weight:</p>
+  <mat-chip-list>
+    <mat-chip selectable="false"> {{ pokeWeight }}kg (metric) </mat-chip>
+    <mat-chip selectable="false"> {{ pokeWeight | pound: 'hg':1 }} (imp)</mat-chip>
+  </mat-chip-list>
+
+  <hr />
+
+  <p>Ability:</p>
+  <mat-chip-list>
+    <ng-container *ngFor="let ability of pokeAbility">
+      <mat-chip selectable="false">{{ ability }}</mat-chip>
+    </ng-container>
+  </mat-chip-list>
+
+  <hr />
+
+  <p>Stats:</p>
+  <mat-chip-list>
+    <ng-container *ngFor="let pokeStat of pokeStats">
+      <mat-chip selectable="false">{{ pokeStat }}</mat-chip>
+    </ng-container>
+  </mat-chip-list>
+
+  <hr />
 
   <button
     mat-raised-button
     color="primary"
-    matBadge="pokeRandomFourMoves.length"
-    matBadgePosition="before"
-    matBadgeColor="accent"
     (click)="toggleBadgeVisibility()"
     mat-raised-button
     color="primary"
-    matBadge="8"
-    matBadgePosition="before"
+    matBadge="4"
+    matBadgePosition="after"
     matBadgeColor="accent"
     class="md-button"
   >
-    Moves: <i class="far fa-caret-square-down"></i>
+    Four Random Moves
+    <i class="far fa-caret-square-down"></i>
   </button>
 
   <ng-template [ngIf]="hidden">
-    <mat-chip-list
-      class="mat-chip-list-stacked"
-      aria-label="Color selection"
-      *ngFor="let move of pokeRandomFourMoves"
-    >
+    <mat-chip-list aria-label="Color selection" *ngFor="let move of pokeRandomFourMoves">
       <mat-chip selectable="false">
         {{ move }}
       </mat-chip>
