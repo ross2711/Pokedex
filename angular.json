@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Pokedex-Test": {
+    "Pokedex": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Pokedex-Test",
+            "outputPath": "dist/Pokedex",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Pokedex-Test:build:production"
+              "browserTarget": "Pokedex:build:production"
             },
             "development": {
-              "browserTarget": "Pokedex-Test:build:development"
+              "browserTarget": "Pokedex:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Pokedex-Test:build"
+            "browserTarget": "Pokedex:build"
           }
         },
         "test": {
@@ -109,5 +109,5 @@
       }
     }
   },
-  "defaultProject": "Pokedex-Test"
+  "defaultProject": "Pokedex"
 }

@@ -1,4 +1,6 @@
-** TODO: Refactor SCSS **
+# Todo
+
+** Refactor SCSS **
 
 # Pokedex
 
